@@ -21,14 +21,10 @@ function allImpl() {
                     resolve(res);
                 }
             }).catch((err) => {
-
                 if(!flag) {
-
-                    console.log(flag + " reject call " + (i + 1));
                     reject(err);
                     flag = true;
                 }
-
             })
         }
     })
