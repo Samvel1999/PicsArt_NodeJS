@@ -1,16 +1,23 @@
 function raceImpl() {
     let arr = arguments[0];
+    let flag = false;
 
     return new Promise((resolve, reject) => {
         if(!Array.isArray(arr)) {
             reject("Is not iterable.")
         }
 
-        for(let elem of arr) {
-            elem.then((val) => {
-                resolve(val);
+        for(let i = 0; i < arr.length; i++) {
+            arr[i].then((val) => {
+                if(!flag) {
+                    resolve(val);
+                    flag = true;
+                }
             }).catch((err) => {
-                reject(err);
+                if(!flag) {
+                    reject(err);
+                    flag = true;
+                }
             })
         }
     })
@@ -43,7 +50,7 @@ let p4 = new Promise((resolve, reject) => {
     },1000);
 });
 
-let arr = [p1, p4];
+let arr = [p1, p2, p3, p4];
 
 Promise.race = raceImpl;
 
