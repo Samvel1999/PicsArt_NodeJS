@@ -1,13 +1,20 @@
 const fs = require('fs').promises;
 
+
+
 function pathToObj(path) {
     let result = {};
-    let isPrinted = false;
+    let filesLeft = true;
+    let count = 0;   //It is for recursion. With it we can determine when function was over.
 
-    function f(obj, path) {
+    function f(obj, path, printResult) {
+        count++;
         let folders = [];
         p = fs.readdir(path);
         p.then((res) => {
+            if(res.length === 0) {
+                filesLeft = false;
+            }
             for(let i = 0; i < res.length; i++) {
                 if(res[i].match(/.txt($)/g)) {
                     obj[res[i]] = true;
@@ -17,27 +24,22 @@ function pathToObj(path) {
                     folders.push(res[i]);
                 }
             }
-        }).then(() => {
+            count--;
             for( let i = 0; i < folders.length; i++) {
-                f(obj[folders[i]], path + "/" + folders[i]);
+                f(obj[folders[i]], path + "/" + folders[i],printResult);
             }
         }).then(() => {
-            if(folders.length === 0 && !isPrinted) {
-                console.log(result);
-                isPrinted = true;
+            if(count === 0) {
+                printResult();
             }
         }).catch((err) => {
             console.log("Error: " + err);
         })
     }
 
-
-    f(result, path);
+    f(result, path, () => {
+        console.log(result);
+    });
 }
 
 pathToObj("c:/users/samvel/desktop/PicsArt_NodeJS/root");
-
-
-
-
-
