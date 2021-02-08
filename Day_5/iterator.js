@@ -5,12 +5,13 @@ let fib = {
 fib[Symbol.iterator] = function () {
     let a = 1;
     let b = 1;
-    let count = 0;
+    let count = 1;
 
     return {
         next: function () {
-            count++;
-            if(count === 1 || count === 2) {
+
+            if(count <= 2) {
+                count++;
                 return {
                     done: false,
                     value: 1

@@ -1,18 +1,30 @@
 function* fib(maxNum) {
     let a = 1;
     let b = 1;
+    let isPrintedFirstElements = false;
 
-    yield b;
     while(b < maxNum) {
-        yield b;
+        if(!isPrintedFirstElements) {
+            yield a;
+            yield b;
 
-        let temp = b;
-        b = a + b;
-        a = temp;
+            let temp = b;
+            b = a + b;
+            a = temp;
+
+            isPrintedFirstElements = true;
+        }
+        else {
+            yield b;
+
+            let temp = b;
+            b = a + b;
+            a = temp;
+        }
     }
 }
 
-let iterator = fib(15);
+let iterator = fib(3);
 
 console.log(iterator.next());
 console.log(iterator.next());
