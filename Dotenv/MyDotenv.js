@@ -2,6 +2,7 @@ const fs = require('fs');
 
 function config(file) {
     file = file || '.env';
+
     let data = fs.readFileSync(file);
     let str = data.toString();
     let arr = str.split('\r\n');
