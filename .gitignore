@@ -1,1 +1,4 @@
 /.idea/
+Dotenv/package-lock.json
+/node_modules/
+Dotenv/package.json
