@@ -15,4 +15,22 @@ function config(file) {
     }
 }
 
+function parse(str) {
+    if(!isNaN(Number(str))) {
+        str = Number(str);
+    }
+    else if(str === 'true') {
+        str = true;
+    }
+    else if(str === 'false') {
+        str = false;
+    }
+    else if((str.startsWith("'") && str.endsWith("'")) || (str.startsWith('"') && str.endsWith('"'))
+        || (str.startsWith("`") && str.endsWith("`"))) {
+        str = str.slice(1, str.length - 1);
+    }
+
+    return str;
+}
+
 exports.config = config;
