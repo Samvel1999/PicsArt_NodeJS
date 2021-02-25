@@ -4,7 +4,7 @@ const requestListener = (request, response) => {
     if(request.url === '/users' && request.method === 'GET') {
         controller.getUsers(request,response);
     }
-    else if(request.url.match(/^\/users\/\w+/) && request.method === 'GET') {
+    else if(request.url.match(/\/users\/[0-9]/g) && request.method === 'GET') {
         const id = request.url.split('/')[2];
         controller.getUser(request, response, id);
     }
@@ -15,12 +15,12 @@ const requestListener = (request, response) => {
     else if(request.url === '/users' && request.method === 'POST') {
         controller.createUser(request, response);
     }
-    else if(request.url.match(/\/users\/\w+/) && request.method === 'PUT') {
+    else if(request.url.match(/\/users\/[0-9]/g) && request.method === 'PUT') {
         const id = request.url.split('/')[2];
         controller.updateUser(request, response, id);
     }
 
-    else if(request.url.match(/\/users\/\w+/) && request.method === 'DELETE') {
+    else if(request.url.match(/\/users\/[0-9]/g) && request.method === 'DELETE') {
         const id = request.url.split('/')[2];
         controller.deleteUser(request, response, id);
     }
