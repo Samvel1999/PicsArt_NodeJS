@@ -14,6 +14,20 @@ function findById(id) {
     })
 }
 
+function findByName(pattern) {
+    return new Promise((res, rej) => {
+        let usersWithPattern = [];
+
+        users.forEach((user) => {
+            if(user.name.includes(pattern)) {
+                usersWithPattern.push(user);
+            }
+        })
+
+        res(usersWithPattern);
+    })
+}
+
 function create(user) {
     return new Promise((res, rej) => {
         const newUser = {...user};
@@ -48,6 +62,7 @@ function remove(id) {
 
 exports.findAll = findAll;
 exports.findById = findById;
+exports.findByName = findByName;
 exports.create = create;
 exports.update = update;
 exports.remove = remove;

@@ -34,6 +34,18 @@ async function getUser(request, response, id) {
     }
 }
 
+async function searchUser(request, response, pattern) {
+    try {
+        const users = await User.findByName(pattern);
+
+        response.writeHead(200, {'Content-Type': 'application/json'});
+        response.end(JSON.stringify(users));
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+
 //Create a User
 //POST /users
 async function createUser(request, response) {
@@ -106,6 +118,7 @@ async function deleteUser(request, response, id) {
 
 exports.getUsers = getUsers;
 exports.getUser = getUser;
+exports.searchUser = searchUser;
 exports.createUser = createUser;
 exports.updateUser = updateUser;
 exports.deleteUser = deleteUser;
