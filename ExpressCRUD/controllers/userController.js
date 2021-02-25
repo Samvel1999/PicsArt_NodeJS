@@ -32,8 +32,7 @@ const createUser = (request, response) => {
     const newUser = {
         id: users[users.length - 1].id + 1,
         name: request.body.name,
-        email: request.body.email,
-        status: 'active'
+        email: request.body.email
     }
 
     if(!newUser.name || !newUser.email) {
