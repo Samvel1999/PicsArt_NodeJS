@@ -22,6 +22,6 @@ no auth
 8. *DELETE* /api/users/posts/:id ------delete post
 
 ## Photo
-1. *GET* /users/:id/posts/postId/photos -----get photos of specific post
-2. *GET* /users/:id/posts/postId/photos/photoId ---get specific photo
+1. *GET* /users/:id/posts/:postId/photos -----get photos of specific post
+2. *GET* /users/:id/posts/:postId/photos/photoId ---get specific photo
 3. *POST* /users/posts/:id/photos ----add photo into my specific post
