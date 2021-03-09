@@ -3,24 +3,35 @@
 ## User
 1. *GET* /api/users -------search user by fullName
 ```
----firstName
----lastName
+"firstName"
+"lastName"
 ```
 2. *POST* /api/users/register -----Register
+```
+"firstName"
+"lastName"
+"email"
+"gender"
+"password"
+```
 3. *POST* /api/users/login ------Login
-
+```
+"email"
+"password"
+```
 4. *PATCH* /api/users-------edit user information
 
 ## Post
 1. *GET* /api/posts -------get all posts as a guest
-no auth
 2. *GET* /api/users/posts -----get all my posts
 3. *GET* /api/users/:id/posts ----get all posts of specific user
 4. *GET* /api/users/:id/posts/:postId----get specific post of specific user
 5. *GET* /api/users/posts/filter?description= ----search posts by description
 6. *POST* /api/users/posts-------add post
-*text
-*description
+```
+"text"
+"description"
+```
 7. *PATCH* /api/users/posts/:id ------edit post information
 8. *DELETE* /api/users/posts/:id ------delete post
 
