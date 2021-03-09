@@ -41,6 +41,6 @@
 3. *POST* /users/posts/:id/photos ----add photo into my specific post
 
 ## Links
-..* https://www.youtube.com/watch?v=mbsmsi7l3r4
-..* https://www.youtube.com/watch?v=2jqok-WgelI&t=2s
-..* https://www.youtube.com/watch?v=srPXMt1Q0nY
+* https://www.youtube.com/watch?v=mbsmsi7l3r4
+* https://www.youtube.com/watch?v=2jqok-WgelI&t=2s
+* https://www.youtube.com/watch?v=srPXMt1Q0nY
