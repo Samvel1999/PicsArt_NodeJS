@@ -11,7 +11,6 @@ class MyEventEmitter {
     emit(name, ...args) {
         if(typeof this.callbacks[name] === 'undefined') {
             return;
-            this.callbacks[name](...args);
         }
 
         for(let cb of this.callbacks[name]) {
