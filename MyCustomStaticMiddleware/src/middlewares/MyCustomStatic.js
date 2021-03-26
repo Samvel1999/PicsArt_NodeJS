@@ -6,7 +6,7 @@ function myCustomStatic(filePath) {
     let arr = filePath.split('.');
     const extension = arr[arr.length - 1];
     let content;
-    const buffer = fs.readFileSync('./' + filePath);
+    const buffer = fs.readFileSync('./src/' + filePath);
 
     if(extension === 'jpg' || extension === 'png' || extension === 'jpeg') {
         content = 'image';
